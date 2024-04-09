@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            font-size:30px;
+        }
+        input{
+            height:40px;
+            width: 250px;
+            font-size:20px;
+        }
+        button{
+            height:30px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <p>Put your weight in here (KG)</p>
+    <input type  ="number" id="wt">
+    <p>And your height in here(CM)</p>
+    <input type="number" id="ht">
+    <br>
+
+    <button onclick="CalculatorBMI()">Calculate BMI</button>
+    <p id="para"></p>
+</body>
+<script>
+   
+   
+    function CalculatorBMI(){
+    var wt=document.getElementById("wt")
+    var ht=document.getElementById("ht")
+    var wtscd=Number(wt.value )
+    var htscd=Number(ht.value) 
+    var mt=htscd/100
+    var mtsq=mt*mt
+    var BMI=(wtscd)/mtsq
+    var st=BMI.toString()
+    var bag=""
+    for(let i=0;st.length;i++){
+        bag+=st[i]
+        if (st[i]=="."){
+            bag+=st[i+1]
+            break
+
+        }
+    }
+    var para=document.getElementById("para")
+    para.innerText="Your BMI is "+bag+" which means You are Obese"
+        
+        
+    }
+
+</script>
+</html>
